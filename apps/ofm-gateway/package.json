@@ -1,0 +1,41 @@
+{
+  "name": "workbuddy-freemodel",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "WorkBuddy-compatible OpenAI gateway that auto-routes /v1/chat/completions across the 76-provider list imported from dsh-our-free-model, with bandit scoring, automatic 429/5xx fallback, cooldown + penalty tracking, and periodic availability probing.",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "typecheck": "node --check index.js && node --check src/auto-router.js && node --check src/scoring.js && node --check src/penalty.js && node --check src/cooldown.js && node --check src/active-providers.js && node --check src/models.js && node --check src/health-probe.js"
+  },
+  "keywords": [
+    "workbuddy",
+    "llm-router",
+    "model-aggregator",
+    "openai-compatible",
+    "auto-fallback"
+  ],
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "files": [
+    "index.js",
+    "src/auto-router.js",
+    "src/scoring.js",
+    "src/penalty.js",
+    "src/cooldown.js",
+    "src/active-providers.js",
+    "src/models.js",
+    "src/health-probe.js",
+    "src/route/classify.js",
+    "src/providers/index.js",
+    "src/providers/registry.json",
+    "README.md"
+  ],
+  "license": "MIT"
+}
